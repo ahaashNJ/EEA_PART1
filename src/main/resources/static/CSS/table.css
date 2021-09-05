@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.navbar{
+    background: #131313;
+    padding: 1rem 1rem;
+    font-family: sans-serif;
+}
+
+.nav-item{
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+}
+
+.navbar .navbar-brand{
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.item{
+    font-size: 1.2rem;
+    padding: 0 0.8rem;
+    font-weight: bold;
+}
+
+a.nav-link.item:hover{
+    color: #40849f !important;
+    cursor: pointer;
+}
+.btn{
+    border-width: medium;
+    border-radius: 0;
+    color: #fff;
+
+}
+
+a.nav-link.item{
+    padding: 0 2rem;
+}
+
+h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 40px;
+    font-weight: 900;
+    color: #505050;
+    margin-top: 20px;
+    margin-bottom: 40px;
+
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+.container {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 40px;
+    font-weight: 900;
+    color: #505050;
+    margin-top: 20px;
+
+}
+
+*{
+    margin:0;
+    padding: 0;
+    outline: 0;
+}
+.filter{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+
+}
+table{
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    transform: translate(-50%,20%);
+    width: 80%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    box-shadow: 0 2px 15px rgba(64,64,64,.7);
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+
+}
+td , th{
+    padding: 15px 20px;
+    text-align: center;
+    border-collapse:separate;
+    border-spacing:5em;
+
+
+}
+th{
+    background-color: #0f3959;
+    color: #fafafa;
+    font-family: 'Poppins',Sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+
+}
+tr{
+    width: 100%;
+    background-color: #03a9f4;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: #131313;
+}
+
+tr:hover{
+    background: #ffffff;
+    color: #000000;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+
+}
+
+button{
+    z-index: 3000;
+    color: #ffffff;
+    background: #0f3959;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 12px;
+    width: 100px;
+    height: 30px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+button:hover{
+    background: #03a9f4;
+    color: #131313;
+    height: 40px;
+    width: 133px;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
