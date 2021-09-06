@@ -18,6 +18,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.springframework.http.HttpStatus.OK;
+
 @RequestMapping("/admin")
 @RestController
 public class MobileAdminController {
@@ -207,6 +209,11 @@ public class MobileAdminController {
     @PostMapping("/addClassroom")
     public ResponseEntity<?> addClassroom(@RequestBody ClassroomDTO classroomDTO) {
 
+        Classroom classroom = classroomService.createClassroom(classroomDTO);
+        if(classroom==null){
+            return null;
+        }
+
         ClassroomDTO dto = new ClassroomDTO();
         dto.setClassroomId(classroomDTO.getClassroomId());
         dto.setNoOfSeats(classroomDTO.getNoOfSeats());
@@ -247,6 +254,11 @@ public class MobileAdminController {
 
     @PostMapping("/addStudent")
     public ResponseEntity<?> addStudent(@RequestBody UserDTO userDTO) {
+
+        User user = userService.createUser(userDTO);
+        if(user==null){
+            return null;
+        }
 
         UserDTO dto = new UserDTO();
         dto.setFirstName(userDTO.getFirstName());
@@ -311,10 +323,12 @@ public class MobileAdminController {
         return ResponseEntity.ok(user);
     }
 
-//    @DeleteMapping("/deleteModule")
-//    public ResponseEntity<?> deleteTimetable(String moduleId){
-//        String s =moduleService.deleteModule(moduleId);
-//}
+    @DeleteMapping("/deleteClassroom/{ClassroomID}")
+    public ResponseEntity<?> deleteTimetable(@PathVariable Classroom ClassroomID){
+        classroomService.deleteClassroom(ClassroomID);
+        return new ResponseEntity<>(OK);
+
+}
 
 }
 

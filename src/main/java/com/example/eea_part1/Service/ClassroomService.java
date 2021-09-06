@@ -25,6 +25,9 @@ public class ClassroomService {
     }
 
     public Classroom createClassroom(ClassroomDTO classroomDTO) {
+        if(classroomRepo.findById(classroomDTO.getClassroomId()).isPresent()){
+            return null;
+        }
         try {
             Classroom classroom = new Classroom();
             classroom.setClassroomID(classroomDTO.getClassroomId());
