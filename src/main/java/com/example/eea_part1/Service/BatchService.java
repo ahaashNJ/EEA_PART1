@@ -90,5 +90,10 @@ public class BatchService {
         batchrepo.delete(batchID);
     }
 
+    public void deleteBatchMobile(Batch batchID,String BatchName) {
+
+        batchrepo.delete(batchID);
+    }
+
 
 }

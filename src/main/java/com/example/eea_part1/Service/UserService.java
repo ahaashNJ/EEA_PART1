@@ -97,6 +97,7 @@ public class UserService implements UserDetailsService {
         user.setUserType(userdto.getUserType());
         user.setPassword(passwordEncoder.encode("Aa12345"));
         emailService.EmailToUser(userdto.getEmail());
+
         return userrepo.save(user);
     }
 
@@ -192,7 +193,7 @@ public class UserService implements UserDetailsService {
         userrepo.delete(userID);
     }
 
-    public User createUserMobile(UserDTO userdto) {
+    public User createStudentMobile(UserDTO userdto) {
 
         User users = new User();
         if(userrepo.findById(userdto.getEmail()).isPresent()){
@@ -205,9 +206,28 @@ public class UserService implements UserDetailsService {
         user.setFirstName(userdto.getFirstName());
         user.setLastName(userdto.getLastName());
         user.setContactNumber(userdto.getContactNumber());
-        user.setUserType(userdto.getUserType());
+        user.setUserType("Student");
         user.setPassword(passwordEncoder.encode("Aa12345"));
         user.setBatchId(batchrepo.findBatchByBatchName(userdto.getBatchId()));
+        emailService.EmailToUser(userdto.getEmail());
+        return userrepo.save(user);
+    }
+
+    public User createLecturerMobile(UserDTO userdto) {
+
+        User users = new User();
+        if(userrepo.findById(userdto.getEmail()).isPresent()){
+            return null;
+        }
+        User user = new User();
+        Batch batch =  new Batch();
+
+        user.setEmail(userdto.getEmail());
+        user.setFirstName(userdto.getFirstName());
+        user.setLastName(userdto.getLastName());
+        user.setContactNumber(userdto.getContactNumber());
+        user.setUserType("Lecturer");
+        user.setPassword(passwordEncoder.encode("Aa12345"));
         emailService.EmailToUser(userdto.getEmail());
         return userrepo.save(user);
     }

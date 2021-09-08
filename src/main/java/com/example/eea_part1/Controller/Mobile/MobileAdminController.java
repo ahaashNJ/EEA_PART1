@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
+import java.sql.SQLOutput;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -101,6 +102,7 @@ public class MobileAdminController {
 
             BatchDTO batchDTO = new BatchDTO();
 
+            batchDTO.setBatchId(batch.getBatchId());
             batchDTO.setBatchName(batch.getBatchName());
             batchDTO.setStartDate(batch.getStartDate().toString());
             batchDTO.setEndDate(batch.getEndDate().toString());
@@ -123,6 +125,7 @@ public class MobileAdminController {
             String[] batchList;
             List<BatchDTO> batchDTOList = new ArrayList<>();
 
+            moduleDTO.setModuleId(module.getModuleID());
             moduleDTO.setModuleName(module.getModuleName());
             moduleDTO.setLecturer(module.getLecturerEmail().getEmail());
             for (Batch batch : module.getBatchList()) {
@@ -168,6 +171,7 @@ public class MobileAdminController {
 
             TimetableDTO timetableDTO = new TimetableDTO();
 
+            timetableDTO.setTimetableId(timetable.getTimetableId());
             timetableDTO.setTimetableDate(timetable.getDate().toString());
             timetableDTO.setStartTime(timetable.getStartTime().toString());
             timetableDTO.setEndTime(timetable.getEndTime().toString());
@@ -193,6 +197,7 @@ public class MobileAdminController {
 
             TimetableDTO timetableDTO = new TimetableDTO();
 
+            timetableDTO.setTimetableId(timetable.getTimetableId());
             timetableDTO.setTimetableDate(timetable.getDate().toString());
             timetableDTO.setStartTime(timetable.getStartTime().toString());
             timetableDTO.setEndTime(timetable.getEndTime().toString());
@@ -245,17 +250,16 @@ public class MobileAdminController {
         dto.setFirstName(userDTO.getFirstName());
         dto.setLastName(userDTO.getLastName());
         dto.setEmail(userDTO.getEmail());
-        dto.setUserType("Lecturer");
         dto.setContactNumber(userDTO.getContactNumber());
 
-        userService.createUser(dto);
+        userService.createLecturerMobile(dto);
         return ResponseEntity.ok(userDTO);
     }
 
     @PostMapping("/addStudent")
     public ResponseEntity<?> addStudent(@RequestBody UserDTO userDTO) {
 
-        User user = userService.createUser(userDTO);
+        User user = userService.createStudentMobile(userDTO);
         if(user==null){
             return null;
         }
@@ -264,12 +268,12 @@ public class MobileAdminController {
         dto.setFirstName(userDTO.getFirstName());
         dto.setLastName(userDTO.getLastName());
         dto.setEmail(userDTO.getEmail());
-        dto.setUserType("Student");
         dto.setBatchId(userDTO.getBatchId());
         dto.setContactNumber(userDTO.getContactNumber());
         System.out.println(userDTO.getBatchId());
 
-        userService.createUserMobile(dto);
+
+        userService.createStudentMobile(dto);
         return ResponseEntity.ok(userDTO);
     }
 
@@ -324,11 +328,37 @@ public class MobileAdminController {
     }
 
     @DeleteMapping("/deleteClassroom/{ClassroomID}")
-    public ResponseEntity<?> deleteTimetable(@PathVariable Classroom ClassroomID){
+    public ResponseEntity<?> deleteClassroom(@PathVariable Classroom ClassroomID){
         classroomService.deleteClassroom(ClassroomID);
         return new ResponseEntity<>(OK);
 
-}
+    }
+
+    @DeleteMapping("/deleteBatch/{BatchID}")
+    public ResponseEntity<?> deleteBatch(@PathVariable Batch BatchID){
+        batchService.deleteBatch(BatchID);
+        return new ResponseEntity<>(OK);
+    }
+
+    @DeleteMapping("/deleteModule/{ModuleID}")
+    public ResponseEntity<?> deleteModule(@PathVariable Module ModuleID){
+        moduleService.deleteModule(ModuleID);
+        return new ResponseEntity<>(OK);
+    }
+
+    @DeleteMapping("/deleteUser/{UserID}")
+    public ResponseEntity<?> deleteUser(@PathVariable User UserID){
+        userService.deleteUser(UserID);
+        return new ResponseEntity<>(OK);
+    }
+
+    @DeleteMapping("/deleteTimetable/{timetableID}")
+    public ResponseEntity<?> deleteTimetable(@PathVariable Timetable timetableID){
+        timetableService.cancelLecture(timetableID);
+        return new ResponseEntity<>(OK);
+    }
+
+
 
 }
 
