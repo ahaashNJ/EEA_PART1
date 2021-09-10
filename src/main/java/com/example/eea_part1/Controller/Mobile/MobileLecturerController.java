@@ -109,4 +109,10 @@ public class MobileLecturerController {
         return ResponseEntity.ok(list);
     }
 
+    @GetMapping("/myAccountLecturer")
+    public ResponseEntity<?> getMyAccount(Authentication authentication){
+        User user = userService.getUserByUserId(authentication.getName());
+        return ResponseEntity.ok(user);
+    }
+
 }

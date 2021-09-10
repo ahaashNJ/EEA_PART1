@@ -433,7 +433,11 @@ public class MobileAdminController {
         return ResponseEntity.ok(list);
     }
 
-
+    @GetMapping("/myAccountAdmin")
+    public ResponseEntity<?> getMyAccount(Authentication authentication){
+        User user = userService.getUserByUserId(authentication.getName());
+        return ResponseEntity.ok(user);
+    }
 
 }
 

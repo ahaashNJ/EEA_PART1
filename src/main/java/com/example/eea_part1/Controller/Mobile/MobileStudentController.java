@@ -114,8 +114,8 @@ public class MobileStudentController {
     }
 
     @GetMapping("/myAccount")
-    public ResponseEntity<?> getMyAccount(@RequestBody String email){
-        User user = userService.getUserByUserId(email);
+    public ResponseEntity<?> getMyAccount(Authentication authentication){
+        User user = userService.getUserByUserId(authentication.getName());
         return ResponseEntity.ok(user);
     }
 }
