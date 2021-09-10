@@ -25,6 +25,18 @@ public interface UserRepo extends JpaRepository<User, String> {
     @Query("FROM User p where p.userType = 'Lecturer'")
     List<User> LecturerView();
 
+    @Query("FROM User p where p.firstName LIKE %:firstName% and p.userType = 'Student'")
+    List<User> firstNameSearchStudent(String firstName);
+
+    @Query("FROM User p where p.lastName LIKE %:firstName% and p.userType = 'Student'")
+    List<User> lastNameSearchStudent(String firstName);
+
+    @Query("FROM User p where p.firstName LIKE %:firstName% and p.userType = 'Lecturer'")
+    List<User> firstNameSearchLecturer(String firstName);
+
+    @Query("FROM User p where p.lastName LIKE %:firstName% and p.userType = 'Lecturer'")
+    List<User> lastNameSearchLecturer(String firstName);
+
     User findUsersByUserType(String userType);
 
 

@@ -358,6 +358,81 @@ public class MobileAdminController {
         return new ResponseEntity<>(OK);
     }
 
+    @GetMapping("/searchBatch/{keyword}")
+    public ResponseEntity<?> searchBatches(@PathVariable("keyword")String name){
+
+        System.out.println(name);
+        List<Batch> batches = batchService.getBatchSearch(name);
+
+        List<BatchDTO> list = new ArrayList<>();
+
+        for (Batch batch : batches) {
+
+            BatchDTO batchDTO = new BatchDTO();
+
+            batchDTO.setBatchId(batch.getBatchId());
+            batchDTO.setBatchName(batch.getBatchName());
+            batchDTO.setStartDate(batch.getStartDate().toString());
+            batchDTO.setEndDate(batch.getEndDate().toString());
+
+            list.add(batchDTO);
+        }
+
+        return ResponseEntity.ok(list);
+
+    }
+
+    @GetMapping(path = "/searchStudent/{keyword}")
+    public ResponseEntity<?> searchStudents(@PathVariable("keyword")String name) {
+
+        List<User> allUsers = userService.getStudentSearchMobile(name);
+
+        List<UserDTO> list = new ArrayList<>();
+        for (User user : allUsers) {
+
+            UserDTO userDTO = new UserDTO();
+            BatchDTO batchDTO = new BatchDTO();
+
+
+            userDTO.setFirstName(user.getFirstName());
+            userDTO.setLastName(user.getLastName());
+            userDTO.setContactNumber(user.getContactNumber());
+            userDTO.setEmail(user.getEmail());
+            userDTO.setUserType(user.getUserType());
+            userDTO.setBatchId(user.getBatchId().getBatchName());
+//            batchDTO.setBatchName(userDTO.getBatchId().toString());
+//            userDTO.setBatchId(batchDTO);
+            list.add(userDTO);
+        }
+
+        return ResponseEntity.ok(list);
+    }
+
+    @GetMapping(path = "/searchLecturer/{keyword}")
+    public ResponseEntity<?> searchLecturers(@PathVariable("keyword")String name) {
+
+        List<User> allUsers = userService.getLecturerSearchMobile(name);
+
+        List<UserDTO> list = new ArrayList<>();
+        for (User user : allUsers) {
+
+            UserDTO userDTO = new UserDTO();
+            BatchDTO batchDTO = new BatchDTO();
+
+
+            userDTO.setFirstName(user.getFirstName());
+            userDTO.setLastName(user.getLastName());
+            userDTO.setContactNumber(user.getContactNumber());
+            userDTO.setEmail(user.getEmail());
+            userDTO.setUserType(user.getUserType());
+//            batchDTO.setBatchName(userDTO.getBatchId().toString());
+//            userDTO.setBatchId(batchDTO);
+            list.add(userDTO);
+        }
+
+        return ResponseEntity.ok(list);
+    }
+
 
 
 }

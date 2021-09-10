@@ -232,5 +232,31 @@ public class UserService implements UserDetailsService {
         return userrepo.save(user);
     }
 
+    public List<User> getStudentSearchMobile(String name){
+
+        List<User> userList = new ArrayList<>();
+
+        userList.addAll(userrepo.firstNameSearchStudent(name));
+
+        userList.addAll(userrepo.lastNameSearchStudent(name));
+
+//        userList.addAll(userrepo.batchName(name));
+
+        return userList;
+    }
+
+    public List<User> getLecturerSearchMobile(String name){
+
+        List<User> userList = new ArrayList<>();
+
+        userList.addAll(userrepo.firstNameSearchLecturer(name));
+
+        userList.addAll(userrepo.lastNameSearchLecturer(name));
+
+//        userList.addAll(userrepo.batchName(name));
+
+        return userList;
+    }
+
 
 }
