@@ -68,12 +68,12 @@
                     <form:input path="classroomId" value="${ClassroomDetails.classroomId}" type = "hidden" readonly="true" />
 
                     <div class = "inputBox w50">
-                        <form:input path="noOfSeats" value="${ClassroomDetails.noOfSeats}" maxlength="5" patter="[0-9]+" type = "text"/>
+                        <form:input path="noOfSeats" value="${ClassroomDetails.noOfSeats}" maxlength="5" patter="[0-9]+" type = "text" required="true"/>
                         <span>Number of Seats</span>
                     </div>
 
                     <div class = "inputBox w50">
-                        <form:input path="floor" value="${ClassroomDetails.floor}" type = "text" maxlength="5" patter="[0-9]+" title="Please be advised to only include numbers"/>
+                        <form:input path="floor" value="${ClassroomDetails.floor}" type = "text" maxlength="5" patter="[0-9]+" title="Please be advised to only include numbers" required="true"/>
                         <span>Floor Number</span>
                     </div>
                     <div class = "inputBox w100">

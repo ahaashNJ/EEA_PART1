@@ -58,7 +58,7 @@
             <div class = "formBox">
 
                 <div class = "inputBox w50">
-                    <form:input path="batchName" type = "text" required="true" maxlength=""/>
+                    <form:input path="batchName" type = "text" required="true" maxlength="20"/>
                     <span>Batch Name</span>
                 </div>
 

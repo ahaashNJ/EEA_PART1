@@ -70,8 +70,10 @@ public class AdminController {
                 model.addAttribute("error","Email exists in the System");
                 //Binding error message
             }
+            else{
             model.addAttribute("success","User Added Successfully");
             //Binding success message
+                }
         }catch (Exception e){
             model.addAttribute("error","Failed To Add User");
             //Binding error message for exceptions
@@ -444,10 +446,16 @@ public class AdminController {
     @PostMapping("/AdminAddClassroom")
     public String addClassroom(@ModelAttribute("AddClassrooms") ClassroomDTO classroomDTO, Model model) {
         try{
-            classroomService.createClassroom(classroomDTO);
-            //Takes in the data from the Bound fields
-            model.addAttribute("success", "Classroom Created Successfully");
-            //Bind success message
+
+            Classroom classroom = classroomService.createClassroom(classroomDTO);
+            if(classroom == null) {
+                model.addAttribute("errors", "Classroom exists in the System");
+            }
+            else {
+                //Takes in the data from the Bound fields
+                model.addAttribute("success", "Classroom Created Successfully");
+                //Bind success message
+            }
         }catch (Exception e){
             model.addAttribute("error", "Failed to Add Classroom");
             //Bind error message for exceptions

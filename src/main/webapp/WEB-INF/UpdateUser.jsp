@@ -69,6 +69,7 @@
                         <div class = "selectBox w50">
                             <form:select path="batchId" type="text" style="border-color: black" cssClass="form-select"
                                          required="true">
+                                <option selected disabled>Choose here</option>
                                 <c:forEach var="listBatch" items="${listBatch}" varStatus="item">
                                     <form:option value="${listBatch.batchId}">
                                         ${listBatch.batchName}

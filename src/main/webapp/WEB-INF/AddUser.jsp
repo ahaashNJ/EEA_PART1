@@ -65,11 +65,11 @@
                 </div>
                 </div>
                 <div class = "inputBox w50">
-                    <form:input path="firstName" type = "text" required="true" maxlength="50"/>
+                    <form:input path="firstName" type = "text" required="true" maxlength="20"/>
                     <span>First Name</span>
                 </div>
                 <div class = "inputBox w50">
-                    <form:input path="lastName" type = "text" required="true" maxlength="50"/>
+                    <form:input path="lastName" type = "text" required="true" maxlength="20"/>
                     <span>Last Name</span>
                 </div>
                 <div class = "inputBox w50">

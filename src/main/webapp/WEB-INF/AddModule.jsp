@@ -58,7 +58,7 @@
             <form:form action="${pageContext.request.contextPath}/AddModule" method="POST" modelAttribute="AddModules">
                 <div class="formBox">
                     <div class="inputBox w50">
-                        <form:input path="moduleName" type="text" required="true" maxlength="100"/>
+                        <form:input path="moduleName" type="text" required="true" maxlength="50"/>
                         <span>Module Name</span>
                     </div>
 

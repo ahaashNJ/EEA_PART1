@@ -83,7 +83,7 @@
                         <input type="submit" value="Create">
                     </div>
                     <div class="Message">
-                        <div>${success}${error}</div>
+                        <div>${success}${error}${errors}</div>
                     </div>
                 </div>
             </form:form>
