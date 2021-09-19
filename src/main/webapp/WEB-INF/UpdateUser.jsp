@@ -47,7 +47,7 @@
         <div class = "formInfo">
             <div>
                 <div class="smallBox">${UserDetails.firstName} ${UserDetails.lastName} ${UpdateUser.firstName} ${UpdateUser.lastName}</div>
-                <div class="smallerBox">${UserDetails.batchId.batchName} ${UpdateUser.batchId.batchName}</div>
+                <div class="smallerBox">${UserDetails.batchId.batchName} ${UpdateUser.batchId}</div>
                 <ul class = "lines">
                     <li>You cannot update initially provided name</li>
                     <li>Add students to batches</li>

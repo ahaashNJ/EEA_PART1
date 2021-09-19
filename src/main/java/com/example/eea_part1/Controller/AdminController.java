@@ -385,6 +385,7 @@ public class AdminController {
     @GetMapping("/RescheduleClass/{TimetableID}")
     public String Reschedule(@PathVariable(value = "TimetableID") String TimetableID, Model timetable) {
         Timetable timetableInfo = timetableService.GetTimetableID(TimetableID);
+
         //Getting the timetable ID from the clicked record
         List<ClassroomDTO>classroomDTO = timetableService.getClassroomList();
         //Calling the list of Classrooms

@@ -114,7 +114,7 @@
                     <div class="col-xs-12 col-md-2">
                         <div class="card" style="margin-left: 160px">
                             <a class="img-card">
-                                <img src="https://images.unsplash.com/photo-1518607692857-bff9babd9d40?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80"/>
+                                <img src="https://www.eschoolnews.com/files/2017/07/classroom.jpg"/>
                             </a>
                             <div class="card-content">
                                 <h4 class="card-title">Classroom Handler</h4>

@@ -54,7 +54,7 @@
     <div class = "container">
         <div class = "formInfo">
             <div>
-                <div class="smallBox">${TimetableDetails.module.moduleName}${RescheduleClass.module.moduleName}</div>
+                <div class="smallBox">${TimetableDetails.module.moduleName}${RescheduleClass.timetableId}</div>
                 <div class="smallerBox">${TimetableDetails.date}${RescheduleClass.timetableDate}</div>
                 <div class="smallerBox">${TimetableDetails.startTime}${RescheduleClass.startTime} - ${TimetableDetails.endTime}${RescheduleClass.endTime}</div>
                 <ul class = "lines">

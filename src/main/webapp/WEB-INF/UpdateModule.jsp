@@ -54,8 +54,8 @@
         <div class = "formInfo">
             <div>
                 <div class="smallBox">${ModuleDetails.moduleName}${UpdateModule.moduleName}</div>
-                <div class="smallerBox">${ModuleDetails.lecturerEmail.firstName}${UpdateModule.lecturer.firstName}
-                    ${ModuleDetails.lecturerEmail.lastName}${UpdateModule.lecturer.lastName}</div>
+                <div class="smallerBox">${ModuleDetails.lecturerEmail.firstName} ${ModuleDetails.lecturerEmail.lastName}</div>
+                <div class="smallerBox" style="font-size: medium">${UpdateModule.lecturer}</div>
             </div>
         </div>
         <div class = "requestForm">
